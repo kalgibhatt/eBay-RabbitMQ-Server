@@ -22,6 +22,23 @@ module.exports = {
 	},
 	fetch: function(collection, queryObject, callback) {
 		logger.logEntry("mongoDao", "fetch");
+//		MongoClient.connect(mongoUrl, function(err, database) {
+//			if(err) {
+//				throw err;
+//			}
+//			//Using one connection out of the pool!
+//			database.collection(collection).find(queryObject, function(err, cursor) {
+//				if(err) {
+//					throw err;
+//				}
+//				cursor.toArray(function(err, resultDoc) {
+//					if(err) {
+//						throw err;
+//					}
+//					callback(resultDoc);
+//				});
+//			});
+//		});
 		db.collection(collection).find(queryObject, function(err, cursor) {
 			if(err) {
 				throw err;
